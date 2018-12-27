@@ -13,13 +13,13 @@
   <meta name="keywords" content="contacte, escoles, excursio, natura, granja, nens, casa colonies, aula rural, lloguer, lloguer d'espais, festes, sales, centres educatius">
   <meta name="author" content="L. Orri">
   <!-- Good shared link on Social Media -->
-  <meta property="og:title" content="Aula Rural Mas Fabrera" />
-  <meta property="og:url" content="https://www.masfabrera.cat" />
+  <meta property="og:title" content="Aula Rural Mas Fabrera">
+  <meta property="og:url" content="https://www.masfabrera.cat">
   <meta property="og:description" content="L'aula rural t'ofereix activitats a la natura i lloguer d'espais per a festes, famílies i grups.">
   <meta property="og:image" content="http://www.masfabrera.cat/objects/logo-masfabrera.png">
-  <meta property="og:type" content="article" />
-  <meta property="og:locale" content="ca_ES" />
-  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ca_ES">
+  <meta property="og:locale:alternate" content="es_ES">
   <!-- CSS dependencies -->
   <link rel="stylesheet" href="aquamarine.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
@@ -63,150 +63,148 @@
     <div class="px-5 container-fluid">
       <div class="row">
         <div class="col-md-12 text-white align-self-center py-2">
-          <h3 class="display-4">Formulari per a
-            <b>centres educatius</b>
+          <h3 class="display-4">Formulari per a <b>centres educatius</b>
           </h3>
           <p class="lead">Completa aquest formulari de la forma més completa que puguis i ens posarem en contacte amb el teu centre el més aviat possible!</p>
         </div>
       </div>
     </div>
     <div class="container-fluid">
-
-    <!-- Codi d'enviament -->
-    <form action="/cgi-sys/form-mail.cgi" method="get" class="form-horizontal">
-                <input type="hidden" name="recipient" value="aularural@masfabrera.cat">
-                <input type="hidden" name="subject" value="Formulari d'interès de l'Aula: ESCOLES">
-                <input type="hidden" name="redirect" value="http://www.masfabrera.cat/files/success.html">
-                <input type="hidden" name="print_config" value="realname,email">
-
-      <div class="row">      
-        <div class="col-md-6 align-self-center">
-          <div class="card">
-            <div class="card-body p-4">
-              <h3 class="pb-3">
-                <i class="fa fa-fw fa-address-card pull-left"></i>Dades personals</h3>
-                <div class="form-group">
+      <!-- Codi d'enviament -->
+      <form action="/cgi-sys/form-mail.cgi" method="get" class="form-horizontal">
+        <input type="hidden" name="recipient" value="aularural@masfabrera.cat">
+        <input type="hidden" name="subject" value="Formulari d'interès de l'Aula: ESCOLES">
+        <input type="hidden" name="redirect" value="http://www.masfabrera.cat/files/success.html">
+        <input type="hidden" name="print_config" value="realname,email">
+        <div class="row">
+          <div class="col-md-6 align-self-center">
+            <div class="card">
+              <div class="card-body p-4">
+                <h3 class="pb-3 text-primary">
+                  <i class="fa fa-fw fa-address-card pull-left"></i>Dades personals</h3>
+                <div class="form-group text-dark">
                   <label>Nom de contacte*</label>
                   <input type="text" class="form-control" required="required" placeholder="Nom de la persona de contacte" name="Nom"> </div>
                 <div class="form-group">
-                  <label>Centre educatiu*</label>
+                  <label class="text-dark">Centre educatiu*</label>
                   <input type="text" class="form-control" name="Escola" placeholder="Nom del centre" required="required"> </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">CIF</label>
+                  <label for="exampleInputEmail1" class="text-dark">CIF</label>
                   <input type="text" class="form-control" id="inlineFormInput" placeholder="Codi del centre" name="CIF"> </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Població i CP*</label>
+                  <label for="exampleInputEmail1" class="text-dark">Població i CP*</label>
                   <input type="text" class="form-control" id="inlineFormInput" placeholder="Població i codi postal" name="Població" required="required"> </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Medis de contacte*</label>
+                  <label for="exampleInputEmail1" class="text-dark">Medis de contacte*</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1">
                         <i class="fa align-self-center fa-lg fa-at"></i>
                       </span>
                     </div>
-                    <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Correu electrònic" required="required" name="email"> </div>
+                    <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Correu electrònic" required="required" name="email">
+                  </div>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1">
                         <i class="fa align-self-center fa-lg fa-phone"></i>
                       </span>
                     </div>
-                    <input type="number" class="form-control" id="inlineFormInputGroup" placeholder="Telèfon" required="required" name="Telèfon"> </div>
+                    <input type="number" class="form-control" id="inlineFormInputGroup" placeholder="Telèfon" required="required" name="Telèfon">
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body p-4">
+                <h3 class="pb-3 text-primary">
+                  <i class="fa fa-fw pull-left fa-tasks"></i>Dades sobre la visita</h3>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-dark">Descripció del <b>grups</b>(s), nombre de <b> nens</b> i <b>cursos</b>
+                  </label>
+                  <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Explicació del nombre de grups de nens interessats, nombre d'alumnes per grup i de quin curs o cursos són." name="Descripció del grup"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-dark">Dates aproximades d'interès per ordre de preferència*</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <i class="fa align-self-center fa-lg fa-calendar-check-o"></i>
+                      </span>
+                    </div>
+                    <input type="date" class="form-control" id="inlineFormInputGroup" required="required" name="Data 1">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <i class="fa align-self-center fa-lg fa-calendar-o"></i>
+                      </span>
+                    </div>
+                    <input type="date" class="form-control" id="inlineFormInputGroup" required="required" name="Data 2">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <i class="fa align-self-center fa-lg fa-calendar-minus-o"></i>
+                      </span>
+                    </div>
+                    <input type="date" class="form-control" id="inlineFormInputGroup" required="required" name="Data 3">
+                  </div>
+                </div>
+                <div class="form-group text-dark">
+                  <label>Preferències trimestrals:</label>
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1" value=" primer trimestre" name="Puc venir el">
+                      <label class="custom-control-label" for="customCheck1">1r Trimestre</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2" value=" segon trimestre" name="Puc venir el">
+                      <label class="custom-control-label" for="customCheck2">2n Trimestre</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3" value=" tercer trimestre" name="Puc venir el">
+                      <label class="custom-control-label" for="customCheck3">3r Trimestre</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group text-dark">
+                  <label>Preferències de dia de setmana:</label>
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="customCheck4" value=" Dilluns" name="De la setmana, vull venir els">
+                      <label class="custom-control-label" for="customCheck4">Dilluns</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="customCheck5" value=" Dimarts" name="De la setmana, vull venir els">
+                      <label class="custom-control-label" for="customCheck5">Dimarts</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="customCheck6" value=" Dimecres" name="De la setmana, vull venir els">
+                      <label class="custom-control-label" for="customCheck6">Dimecres</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="customCheck7" value=" Dijous" name="De la setmana, vull venir els">
+                      <label class="custom-control-label" for="customCheck7">Dijous</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="customCheck8" value=" Divendres" name="De la setmana, vull venir els">
+                      <label class="custom-control-label" for="customCheck8">Divendres</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-dark">Comentaris, preguntes i preferències <br> </label>
+                  <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Altres comentaris" name="Comentari"></textarea>
+                </div>
+                <button type="submit" class="btn mt-2 btn-outline-dark">Envia</button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body p-4">
-              <h3 class="pb-3">
-                <i class="fa fa-fw pull-left fa-tasks"></i>Dades sobre la visita</h3>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Descripció del
-                  <b>grups</b>(s), nombre de
-                  <b> nens</b> i
-                  <b>cursos</b>
-                </label>
-                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Explicació del nombre de grups de nens interessats, nombre d'alumnes per grup i de quin curs o cursos són." name="Descripció del grup"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Dates aproximades d'interès per ordre de preferència*</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa align-self-center fa-lg fa-calendar-check-o"></i>
-                    </span>
-                  </div>
-                  <input type="date" class="form-control" id="inlineFormInputGroup" required="required" name="Data 1"> </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa align-self-center fa-lg fa-calendar-o"></i>
-                    </span>
-                  </div>
-                  <input type="date" class="form-control" id="inlineFormInputGroup" required="required" name="Data 2"> </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa align-self-center fa-lg fa-calendar-minus-o"></i>
-                    </span>
-                  </div>
-                  <input type="date" class="form-control" id="inlineFormInputGroup" required="required" name="Data 3"> </div>
-              </div>
-              <div class="form-group">
-                <label>Preferències trimestrals:</label>
-                <div class="form-group">
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1" value=" primer trimestre" name="Puc venir el">
-                    <label class="custom-control-label" for="customCheck1">1r Trimestre</label>
-                  </div>
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="customCheck2" value=" segon trimestre" name="Puc venir el">
-                    <label class="custom-control-label" for="customCheck2">2n Trimestre</label>
-                  </div>
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="customCheck3" value=" tercer trimestre" name="Puc venir el">
-                    <label class="custom-control-label" for="customCheck3">3r Trimestre</label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Preferències de dia de setmana:</label>
-                <div class="form-group">
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="customCheck4" value=" Dilluns" name="De la setmana, vull venir els">
-                    <label class="custom-control-label" for="customCheck4">Dilluns</label>
-                  </div>
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="customCheck5" value=" Dimarts" name="De la setmana, vull venir els">
-                    <label class="custom-control-label" for="customCheck5">Dimarts</label>
-                  </div>
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="customCheck6" value=" Dimecres" name="De la setmana, vull venir els">
-                    <label class="custom-control-label" for="customCheck6">Dimecres</label>
-                  </div>
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="customCheck7" value=" Dijous" name="De la setmana, vull venir els">
-                    <label class="custom-control-label" for="customCheck7">Dijous</label>
-                  </div>
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="customCheck8" value=" Divendres" name="De la setmana, vull venir els">
-                    <label class="custom-control-label" for="customCheck8">Divendres</label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Comentaris, preguntes i preferències
-                  <br> </label>
-                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Altres comentaris" name="Comentari"></textarea>
-              </div>
-              <button type="submit" class="btn mt-2 btn-outline-dark">Envia</button>
-            </div>
-          </div>
-        </div>
-    </form>
-      </div>
+      </form>
     </div>
   </div>
   <footer class="text-md-left text-center bg-dark text-light p-2">
@@ -224,9 +222,7 @@
           </a>
         </div>
         <div class="col-md-10" style="transition: all 0.25s;">
-          <p class="text-left text-muted">© Copyright 2018 ·
-            <b>Aula Rural Mas Fabrera</b> · En memòria al meu pare Joan
-            <br> </p>
+          <p class="text-left text-muted">© Copyright 2018 · <b>Aula Rural Mas Fabrera</b> · En memòria al meu pare Joan <br> </p>
         </div>
       </div>
     </div>
@@ -237,6 +233,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- Script: Smooth scrolling between anchors in a same page -->
   <script src="js/smooth-scroll.js"></script>
+  
 </body>
 
 </html>
