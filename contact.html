@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon" href="brand/favicon/favicon.ico">
+  <title>Formulari de contacte · Aula Rural Mas Fabrera</title>
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="description" content="Formulari de contacte per a famílies i privats. Pregunta'ns els teus dubtes o contacta'ns per preparar la teva festa o esdeveniment amb les teves preferències.">
+  <meta name="keywords" content="contacte, escoles, excursio, natura, granja, nens, casa colonies, aula rural, lloguer, lloguer d'espais, festes, sales, centres educatius">
+  <meta name="author" content="L. Orri">
+  <!-- Good shared link on Social Media -->
+  <meta property="og:title" content="Aula Rural Mas Fabrera" />
+  <meta property="og:url" content="https://www.masfabrera.cat" />
+  <meta property="og:description" content="L'aula rural t'ofereix activitats a la natura i lloguer d'espais per a festes, famílies i grups.">
+  <meta property="og:image" content="http://www.masfabrera.cat/objects/logo-masfabrera.png">
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ca_ES" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="aquamarine.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <!-- Script: Make my navbar transparent when the document is scrolled to top -->
+  <script src="js/navbar-ontop.js"></script>
+  <!-- Script: Animated entrance -->
+  <script src="js/animate-in.js"></script>
+</head>
+
+<body class="text-center">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="brand/logo_inv.png" width="30" height="30" class="d-inline-block mx-1 align-top" alt="">
+        <b>Aula Rural Mas Fabrera</b>
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbar2SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="index.html">Torna a l'inici</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactEXT.html">Formulari per a
+              <b> centres educatius</b>
+            </a>
+          </li>
+        </ul>
+        <div class="btn-group navbar-btn mx-2 text-white btn-outline-light">
+          <a href="images.html" class="btn btn-outline-light">Imatges</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Cover -->
+  <!-- Parallax section -->
+  <!-- Speakers -->
+  <!-- Schedule -->
+  <!-- Sponsor logos -->
+  <!-- Call to action -->
+  <!-- Footer -->
+  <div class="py-5 inset-shadowed" style="background-image: url('pics/min/installacions/camp_min.jpg');background-position:left bottom;">
+    <div class="container-fluid px-5">
+      <div class="row">
+        <div class="col-md-5 text-white align-self-center py-2">
+          <h3 class="display-4">Contacta'ns</h3>
+          <p class="lead">Completa aquest formulari de contacte i ens posarem en contacte amb tu el més aviat possible!</p>
+          <a class="btn btn-light btn-block" href="contactEXT.html">Formularis per
+            <b>centres educatius</b>
+            <b>AQUÍ</b>
+          </a>
+        </div>
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-body p-4">
+              <h3 class="pb-3">Formulari de contacte</h3>
+              <!-- Codi d'enviament -->
+              <form action="/cgi-sys/form-mail.cgi" method="get" class="form-horizontal">
+                <input type="hidden" name="recipient" value="aularural@masfabrera.cat">
+                <input type="hidden" name="subject" value="Formulari d'interès de l'Aula: PERSONAL">
+                <input type="hidden" name="redirect" value="http://www.masfabrera.cat/files/success.html">
+                <input type="hidden" name="print_config" value="realname,email">
+                <div class="form-group">
+                  <label>Nom*</label>
+                  <input type="text" class="form-control" required="required" placeholder="Nom de contacte" name="Nom"> </div>
+                <div class="form-group">
+                  <label>Població</label>
+                  <input type="text" class="form-control" placeholder="D'on sou..." name="Població"> </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Medis de contacte*</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <i class="fa align-self-center fa-lg fa-at"></i>
+                      </span>
+                    </div>
+                    <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Correu electrònic" required="required" name="email"> </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <i class="fa align-self-center fa-lg fa-comments"></i>
+                      </span>
+                    </div>
+                    <input type="number" class="form-control" id="inlineFormInputGroup" placeholder="Telèfon" required="required" name="Telèfon"> </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Data aproximada d'interès</label>
+                  <input type="date" class="form-control" id="inlineFormInput" name="Data d'interès"> </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Assumpte*</label>
+                  <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Comentaris i preguntes..." name="Comentari"></textarea>
+                </div>
+                <button type="submit" class="btn mt-2 btn-outline-dark">Envia</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="text-md-left text-center bg-dark text-light p-2">
+    <div class="container">
+      <div class="row">
+        <div class="align-self-center col-md-2" style="transition: all 0.25s;">
+          <a href="https://www.facebook.com/aularural" target="_blank">
+            <i class="fa fa-facebook-square text-muted fa-2x"></i>
+          </a>
+          <a target="_blank" href="https://www.google.es/search?q=mas+fabrera">
+            <i class="fa text-muted fa-2x mx-2 fa-google"></i>
+          </a>
+          <a href="mailto:aularural@masfabrera.cat">
+            <i class="fa text-muted fa-envelope fa-2x"></i>
+          </a>
+        </div>
+        <div class="col-md-10" style="transition: all 0.25s;">
+          <p class="text-left text-muted">© Copyright 2018 ·
+            <b>Aula Rural Mas Fabrera</b> · En memòria al meu pare Joan
+            <br> </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- JavaScript dependencies -->
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Script: Smooth scrolling between anchors in a same page -->
+  <script src="js/smooth-scroll.js"></script>
+</body>
+
+</html>
