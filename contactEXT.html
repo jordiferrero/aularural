@@ -71,11 +71,8 @@
     </div>
     <div class="container-fluid">
       <!-- Codi d'enviament -->
-      <form action="/cgi-sys/form-mail.cgi" method="get" class="form-horizontal">
-        <input type="hidden" name="recipient" value="aularural@masfabrera.cat">
-        <input type="hidden" name="subject" value="Formulari d'interès de l'Aula: ESCOLES">
-        <input type="hidden" name="redirect" value="http://www.masfabrera.cat/files/success.html">
-        <input type="hidden" name="print_config" value="realname,email">
+      <form action="https://formspree.io/f/xvodorrn" method="POST" class="form-horizontal">
+        <input type="hidden" name="_subject" value="Formulari d'interès de l'Aula: ESCOLES">
         <div class="row">
           <div class="col-md-6 align-self-center">
             <div class="card">
@@ -233,7 +230,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- Script: Smooth scrolling between anchors in a same page -->
   <script src="js/smooth-scroll.js"></script>
-  
 </body>
 
 </html>
