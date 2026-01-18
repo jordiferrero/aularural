@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allotjament Roses - Girona</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #666666;
+      font-size: 16px;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    /* Navigation - Centered */
+    nav {
+      padding: 2rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #1a1a1a;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      position: absolute;
+      right: 5%;
+      top: 2rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lang-toggle button {
+      background: transparent;
+      border: 1px solid #1a1a1a;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .lang-toggle button.active {
+      background: #1a1a1a;
+      color: white;
+    }
+
+    .lang-toggle button:hover {
+      background: #1a1a1a;
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      margin: 8rem 5% 0;
+      border-radius: 40px;
+      overflow: hidden;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('pics/roses/livingroom_min.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      padding: 4rem;
+      color: white;
+      max-width: 600px;
+    }
+
+    .hero-content h1 {
+      color: white;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      color: rgba(255,255,255,0.9);
+      font-size: 18px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-button {
+      background: #000000;
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      display: inline-block;
+    }
+
+    .hero-button:hover {
+      opacity: 0.8;
+    }
+
+    /* Property Icons */
+    .property-info {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .property-info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .property-info-item svg {
+      width: 24px;
+      height: 24px;
+      stroke: #1a1a1a;
+    }
+
+    .property-info-item span {
+      font-size: 16px;
+      color: #1a1a1a;
+      font-weight: 400;
+    }
+
+    /* Locations Section - Pale Pink Background */
+    .locations {
+      background: #FFF0F0;
+      padding: 5rem 5%;
+      margin-top: 5rem;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .location-card {
+      text-align: center;
+    }
+
+    .location-card img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    .location-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .location-card p {
+      font-size: 14px;
+      color: #666;
+      font-weight: 300;
+    }
+
+    /* Property Section - White Background */
+    .property-section {
+      padding: 5rem 5%;
+      background: white;
+    }
+
+    .property-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .property-section > p {
+      margin-bottom: 2rem;
+    }
+
+    .feature-image {
+      width: 100%;
+      border-radius: 40px;
+      margin-bottom: 3rem;
+      object-fit: cover;
+      height: 500px;
+    }
+
+    /* Gallery Grid - 2 rows, 3 columns */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+    }
+
+    .feature-image {
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .feature-image:hover {
+      transform: scale(1.01);
+    }
+
+    /* Image Modal */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      animation: fadeIn 0.3s;
+    }
+
+    .image-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .image-modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      margin: auto;
+    }
+
+    .image-modal-content img {
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+
+    .image-modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+
+    .image-modal-close svg {
+      width: 24px;
+      height: 24px;
+      stroke: white;
+    }
+
+
+    /* Property Details */
+    .property-details {
+      padding: 5rem 5%;
+      background: white;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .detail-category h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .detail-category h3 svg {
+      width: 24px;
+      height: 24px;
+      stroke: #1a1a1a;
+      flex-shrink: 0;
+    }
+
+    .detail-category h3 .translatable-text {
+      flex: 1;
+    }
+
+    .detail-category ul {
+      list-style: none;
+    }
+
+    .detail-category li {
+      padding: 0.3rem 0;
+      color: #666;
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    .detail-category li:before {
+      content: "✓";
+      margin-right: 0.5rem;
+      color: #1a1a1a;
+    }
+
+    /* Policies & Map Combined Section */
+    .policies-map-section {
+      padding: 5rem 5%;
+      background: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .policies-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .policies-content h2 {
+      margin-bottom: 1rem;
+    }
+
+    .policies-content > p {
+      margin-bottom: 1rem;
+    }
+
+    .policies-content h3 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .policies-content ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    .policies-content li {
+      padding: 0.5rem 0;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .map-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .map-content h2 {
+      margin-bottom: 1rem;
+    }
+
+    .map-content > p {
+      margin-bottom: 1rem;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: 40px;
+      overflow: hidden;
+      margin-top: 0;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Footer CTA - Pale Pink Background */
+    .footer-cta {
+      background: #FFF0F0;
+      padding: 5rem 5%;
+      text-align: center;
+    }
+
+    .footer-cta h2 {
+      margin-bottom: 1rem;
+    }
+
+    .footer-cta .cta-subtitle {
+      margin-bottom: 2rem;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-button {
+      flex: 1;
+      min-width: 280px;
+      background: white;
+      border: none;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: #1a1a1a;
+    }
+
+    .contact-button:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+    }
+
+    .contact-button svg {
+      width: 24px;
+      height: 24px;
+      stroke: #1a1a1a;
+      flex-shrink: 0;
+    }
+
+    .contact-button span {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .policies-map-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+      }
+
+      .contact-button {
+        min-width: 100%;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        padding-top: 1rem;
+      }
+
+      nav a {
+        margin: 0 0.75rem;
+        font-size: 12px;
+      }
+
+      .lang-toggle {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin: 1rem auto 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .locations-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#home" data-translate="nav.home">Inici</a>
+    <a href="#property" data-translate="nav.property">Propietat</a>
+    <a href="#amenities" data-translate="nav.amenities">Comoditats</a>
+    <a href="#location" data-translate="nav.location">Ubicació</a>
+    <a href="#contact" data-translate="nav.contact">Contacte</a>
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="ca">CA</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn active" data-lang="fr">FR</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 data-translate="hero.title">Allotjament Roses</h1>
+      <p data-translate="hero.subtitle">Pis de lloguer complet a Girona, Espanya. Perfecte per a famílies i grups fins a 9 persones.</p>
+      <a href="#locations" class="hero-button" data-translate="hero.button">Veure més</a>
+    </div>
+  </section>
+
+  <!-- Locations Section - 6 Circular Images -->
+  <section class="locations" id="locations">
+    <div class="locations-grid">
+      <div class="location-card">
+        <img src="pics/roses/livingroom_min.jpg" alt="Saló">
+        <h3 data-translate="location.1.name">Saló</h3>
+        <p data-translate="location.1.desc">Espai ampli i còmode</p>
+      </div>
+      <div class="location-card">
+        <img src="pics/roses/kitchen_min.jpg" alt="Cuina">
+        <h3 data-translate="location.2.name">Cuina</h3>
+        <p data-translate="location.2.desc">Totalment equipada</p>
+      </div>
+      <div class="location-card">
+        <img src="pics/roses/master_bedroom_min.jpg" alt="Dormitori Principal">
+        <h3 data-translate="location.3.name">Dormitori Principal</h3>
+        <p data-translate="location.3.desc">Amb bany privat</p>
+      </div>
+      <div class="location-card">
+        <img src="pics/roses/balcony_min.jpg" alt="Balcó">
+        <h3 data-translate="location.4.name">Balcó</h3>
+        <p data-translate="location.4.desc">Davant del mar</p>
+      </div>
+      <div class="location-card">
+        <img src="pics/roses/bedroom2_min.jpg" alt="Dos dormitoris">
+        <h3 data-translate="location.5.name">Dos dormitoris</h3>
+        <p data-translate="location.5.desc">Sense bany</p>
+      </div>
+      <div class="location-card">
+        <img src="pics/roses/pool1_min.jpg" alt="Piscina">
+        <h3 data-translate="location.6.name">Piscina</h3>
+        <p data-translate="location.6.desc">Compartida tot l'any</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section - After Locations -->
+  <section class="footer-cta">
+    <h2 data-translate="cta.title">Reserva El Teu Allotjament Ideal</h2>
+    <p class="cta-subtitle" data-translate="cta.subtitle">Contacta'm personalment per email o whatsapp:</p>
+    <div class="contact-buttons">
+      <a href="mailto:jordiferrer66@gmail.com" class="contact-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span data-translate="cta.email">jordiferrer66@gmail.com</span>
+      </a>
+      <a href="https://wa.me/34647668525" class="contact-button" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span data-translate="cta.phone">+34 647 668 525</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Property Section - "New York" Style -->
+  <section class="property-section" id="property">
+    <h2 data-translate="property.title">Allotjament Sencer</h2>
+    <div class="property-info">
+      <div class="property-info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span data-translate="property.guests">9 viatgers</span>
+      </div>
+      <div class="property-info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span data-translate="property.rooms">3 dormitoris</span>
+      </div>
+      <div class="property-info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        <span data-translate="property.beds">7 llits</span>
+      </div>
+      <div class="property-info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+          <line x1="9" y1="3" x2="9" y2="21"></line>
+          <line x1="15" y1="3" x2="15" y2="21"></line>
+        </svg>
+        <span data-translate="property.baths">2 banys</span>
+      </div>
+    </div>
+    <img src="pics/roses/balcony_min.jpg" alt="Balcó" class="feature-image" data-image-src="pics/roses/balcony_min.jpg">
+    
+    <!-- Gallery Grid - All Images -->
+    <div class="gallery-grid">
+      <img src="pics/roses/bathroom_2_min.jpg" alt="Bany" data-image-src="pics/roses/bathroom_2_min.jpg">
+      <img src="pics/roses/master_ensuite_min.jpg" alt="Bany Principal" data-image-src="pics/roses/master_ensuite_min.jpg">
+      <img src="pics/roses/pool2_min.jpg" alt="Piscina 2" data-image-src="pics/roses/pool2_min.jpg">
+      <img src="pics/roses/kitchen_min.jpg" alt="Cuina" data-image-src="pics/roses/kitchen_min.jpg">
+      <img src="pics/roses/livingroom_min.jpg" alt="Saló" data-image-src="pics/roses/livingroom_min.jpg">
+      <img src="pics/roses/master_bedroom_min.jpg" alt="Dormitori" data-image-src="pics/roses/master_bedroom_min.jpg">
+      <img src="pics/roses/bedroom2_min.jpg" alt="Dormitori 2" data-image-src="pics/roses/bedroom2_min.jpg">
+      <img src="pics/roses/bedroom3_min.jpg" alt="Dormitori 3" data-image-src="pics/roses/bedroom3_min.jpg">
+      <img src="pics/roses/pool1_min.jpg" alt="Piscina" data-image-src="pics/roses/pool1_min.jpg">
+    </div>
+  </section>
+
+  <!-- Image Modal -->
+  <div class="image-modal" id="imageModal">
+    <div class="image-modal-content">
+      <span class="image-modal-close" id="closeModal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </span>
+      <img id="modalImage" src="" alt="Full size">
+    </div>
+  </div>
+
+  <!-- Property Details -->
+  <section class="property-details" id="amenities">
+    <h2 data-translate="details.title">Què ofereix aquest espai?</h2>
+    <div class="details-grid">
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+          </svg>
+          <span class="translatable-text" data-translate="details.bathroom">Bany</span>
+        </h3>
+        <ul>
+          <li data-translate="details.bath.1">Banyera</li>
+          <li data-translate="details.bath.2">Assecador</li>
+          <li data-translate="details.bath.3">Productes de neteja</li>
+          <li data-translate="details.bath.4">Bidet</li>
+          <li data-translate="details.bath.5">Aigua calenta</li>
+        </ul>
+      </div>
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="9" r="4"></circle>
+          </svg>
+          <span class="translatable-text" data-translate="details.bedroom">Dormitori i bugaderia</span>
+        </h3>
+        <ul>
+          <li data-translate="details.bed.1">Rentadora</li>
+          <li data-translate="details.bed.2">Penjadors</li>
+          <li data-translate="details.bed.3">Cortines per enfosquir</li>
+          <li data-translate="details.bed.4">Planxa</li>
+          <li data-translate="details.bed.5">Estenedor</li>
+        </ul>
+      </div>
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+            <line x1="6" y1="10" x2="6" y2="14"></line>
+            <line x1="10" y1="10" x2="10" y2="14"></line>
+            <line x1="14" y1="10" x2="14" y2="14"></line>
+            <line x1="18" y1="10" x2="18" y2="14"></line>
+          </svg>
+          <span class="translatable-text" data-translate="details.entertainment">Entreteniment</span>
+        </h3>
+        <ul>
+          <li data-translate="details.ent.1">TV</li>
+          <li data-translate="details.ent.2">Llibres i material de lectura</li>
+        </ul>
+      </div>
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span class="translatable-text" data-translate="details.family">Per a famílies</span>
+        </h3>
+        <ul>
+          <li data-translate="details.fam.1">Parc i bressol de viatge</li>
+          <li data-translate="details.fam.2">Cortines per enfosquir</li>
+          <li data-translate="details.fam.3">Llibres i joguines per a infants</li>
+          <li data-translate="details.fam.4">Jocs de taula</li>
+        </ul>
+      </div>
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14.304 4.296l2.258-2.258a1.5 1.5 0 0 1 2.121 0l2.121 2.121a1.5 1.5 0 0 1 0 2.121l-2.258 2.258m-1.95-4.242l-8.485 8.485a2 2 0 0 0-.586 1.414V19a1 1 0 0 0 1 1h2.757a2 2 0 0 0 1.414-.586l8.485-8.485a2 2 0 0 0 0-2.828l-2.121-2.121a2 2 0 0 0-2.828 0z"></path>
+          </svg>
+          <span class="translatable-text" data-translate="details.climate">Calefacció i aire condicionat</span>
+        </h3>
+        <ul>
+          <li data-translate="details.clim.1">Aire condicionat sense conductes</li>
+          <li data-translate="details.clim.2">Ventilador al sostre</li>
+          <li data-translate="details.clim.3">Ventiladors portàtils</li>
+          <li data-translate="details.clim.4">Calefacció radiant</li>
+        </ul>
+      </div>
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          <span class="translatable-text" data-translate="details.internet">Internet i despatx</span>
+        </h3>
+        <ul>
+          <li data-translate="details.int.1">Wifi</li>
+          <li data-translate="details.int.2">Espai de treball amb porta</li>
+        </ul>
+      </div>
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="translatable-text" data-translate="details.kitchen">Cuina i menjador</span>
+        </h3>
+        <ul>
+          <li data-translate="details.kit.1">Cuina completa</li>
+          <li data-translate="details.kit.2">Nevera i congelador</li>
+          <li data-translate="details.kit.3">Microones i forn</li>
+          <li data-translate="details.kit.4">Cafetera i torradora</li>
+          <li data-translate="details.kit.5">Utensilis per a la barbacoa</li>
+        </ul>
+      </div>
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span class="translatable-text" data-translate="details.location">Característiques de l'emplaçament</span>
+        </h3>
+        <ul>
+          <li data-translate="details.loc.1">Davant del mar</li>
+          <li data-translate="details.loc.2">Al costat d'una massa d'aigua</li>
+          <li data-translate="details.loc.3">Pati o balcó privat</li>
+          <li data-translate="details.loc.4">Lloc per a fogueres</li>
+          <li data-translate="details.loc.5">Mobles d'exterior</li>
+        </ul>
+      </div>
+      <div class="detail-category">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
+          </svg>
+          <span class="translatable-text" data-translate="details.parking">Aparcament i instal·lacions</span>
+        </h3>
+        <ul>
+          <li data-translate="details.park.1">Aparcament gratuït inclòs</li>
+          <li data-translate="details.park.2">Piscina descoberta compartida</li>
+          <li data-translate="details.park.3">Disponible de 9:00 a 21:00</li>
+          <li data-translate="details.park.4">Ascensor</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policies & Map Combined Section -->
+  <section class="policies-map-section" id="location">
+    <div class="policies-content">
+      <h2 data-translate="policies.title">Política de reserva</h2>
+      <p data-translate="policies.text">Contacta'm personalment via correu o whatsapp.</p>
+      <h3 data-translate="policies.checkin">Check-in/out</h3>
+      <ul>
+        <li data-translate="policies.arrival">✓ Arribada a partir de les 13:00</li>
+        <li data-translate="policies.departure">✓ La sortida és abans de les 11:00</li>
+        <li data-translate="policies.guests">✓ 9 hostes com a màxim</li>
+        <li data-translate="policies.minimum">✓ 1 setmana com a mínim</li>
+      </ul>
+    </div>
+    <div class="map-content">
+      <h2 data-translate="map.title">Ubicació</h2>
+        <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23614.4!2d3.1871!3d42.2466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDE0JzQ3LjkiTiAzwrAxMScxMy41IkU!5e0!3m2!1sen!2ses!4v1704067200000" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="footer-cta" id="contact">
+    <h2 data-translate="cta.title">Reserva El Teu Allotjament Ideal</h2>
+    <p class="cta-subtitle" data-translate="cta.subtitle">Contacta'm personalment per email o whatsapp:</p>
+    <div class="contact-buttons">
+      <a href="mailto:jordiferrer66@gmail.com" class="contact-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span data-translate="cta.email">jordiferrer66@gmail.com</span>
+      </a>
+      <a href="https://wa.me/34647668525" class="contact-button" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span data-translate="cta.phone">+34 647 668 525</span>
+      </a>
+    </div>
+  </section>
+
+
+  <script>
+    // Language translations
+    const translations = {
+      ca: {
+        "nav.home": "Inici",
+        "nav.property": "Propietat",
+        "nav.amenities": "Comoditats",
+        "nav.location": "Ubicació",
+        "nav.contact": "Contacte",
+        "hero.title": "Allotjament Roses",
+        "hero.subtitle": "Pis de lloguer complet a Girona, Espanya. Perfecte per a famílies i grups fins a 9 persones.",
+        "hero.button": "Veure més",
+        "location.1.name": "Saló",
+        "location.1.desc": "Espai ampli i còmode",
+        "location.2.name": "Cuina",
+        "location.2.desc": "Totalment equipada",
+        "location.3.name": "Dormitori Principal",
+        "location.3.desc": "Amb bany privat",
+        "location.4.name": "Balcó",
+        "location.4.desc": "Davant del mar",
+        "location.5.name": "Dos dormitoris",
+        "location.5.desc": "Sense bany",
+        "location.6.name": "Piscina",
+        "location.6.desc": "Compartida tot l'any",
+        "property.title": "Allotjament Sencer",
+        "property.guests": "9 viatgers",
+        "property.rooms": "3 dormitoris",
+        "property.beds": "7 llits",
+        "property.baths": "2 banys",
+        "trusted.title": "Confiat Per Els Millors Agents",
+        "trusted.subtitle": "Text d'exemple. Feu clic per seleccionar l'element de text.",
+        "trusted.1": "Troba ofertes excel·lents",
+        "trusted.2": "Amfitrió amable i suport ràpid",
+        "trusted.3": "Llista la teva pròpia propietat",
+        "trusted.footer": "Imatge de Freepik",
+        "exclusive.title": "Apartaments Exclusius",
+        "exclusive.subtitle": "Text d'exemple. Feu clic per seleccionar l'element de text. Imatge de Freepik.",
+        "details.title": "Què ofereix aquest espai?",
+        "details.bathroom": "Bany",
+        "details.bath.1": "Banyera",
+        "details.bath.2": "Assecador",
+        "details.bath.3": "Productes de neteja",
+        "details.bath.4": "Bidet",
+        "details.bath.5": "Aigua calenta",
+        "details.bedroom": "Dormitori i bugaderia",
+        "details.bed.1": "Rentadora",
+        "details.bed.2": "Penjadors",
+        "details.bed.3": "Cortines per enfosquir",
+        "details.bed.4": "Planxa",
+        "details.bed.5": "Estenedor",
+        "details.entertainment": "Entreteniment",
+        "details.ent.1": "TV",
+        "details.ent.2": "Llibres i material de lectura",
+        "details.family": "Per a famílies",
+        "details.fam.1": "Parc i bressol de viatge",
+        "details.fam.2": "Cortines per enfosquir",
+        "details.fam.3": "Llibres i joguines per a infants",
+        "details.fam.4": "Jocs de taula",
+        "details.climate": "Calefacció i aire condicionat",
+        "details.clim.1": "Aire condicionat sense conductes",
+        "details.clim.2": "Ventilador al sostre",
+        "details.clim.3": "Ventiladors portàtils",
+        "details.clim.4": "Calefacció radiant",
+        "details.internet": "Internet i despatx",
+        "details.int.1": "Wifi",
+        "details.int.2": "Espai de treball amb porta",
+        "details.kitchen": "Cuina i menjador",
+        "details.kit.1": "Cuina completa",
+        "details.kit.2": "Nevera i congelador",
+        "details.kit.3": "Microones i forn",
+        "details.kit.4": "Cafetera i torradora",
+        "details.kit.5": "Utensilis per a la barbacoa",
+        "details.location": "Característiques de l'emplaçament",
+        "details.loc.1": "Davant del mar",
+        "details.loc.2": "Al costat d'una massa d'aigua",
+        "details.loc.3": "Pati o balcó privat",
+        "details.loc.4": "Lloc per a fogueres",
+        "details.loc.5": "Mobles d'exterior",
+        "details.parking": "Aparcament i instal·lacions",
+        "details.park.1": "Aparcament gratuït inclòs",
+        "details.park.2": "Piscina descoberta compartida",
+        "details.park.3": "Disponible de 9:00 a 21:00",
+        "details.park.4": "Ascensor",
+        "map.title": "Ubicació",
+        "map.coords": "42°14'47.9\"N 3°11'13.5\"E",
+        "policies.title": "Política de reserva",
+        "policies.text": "Contacta'm personalment via correu o whatsapp. <a href=\"#contact\">Contacte</a>",
+        "policies.checkin": "Check-in/out",
+        "policies.arrival": "✓ Arribada a partir de les 13:00",
+        "policies.departure": "✓ La sortida és abans de les 11:00",
+        "policies.guests": "✓ 9 hostes com a màxim",
+        "policies.minimum": "✓ 1 setmana com a mínim",
+        "cta.title": "Reserva El Teu Allotjament Ideal",
+        "cta.subtitle": "Contacta'm personalment per email o whatsapp:",
+        "cta.email": "jordiferrer66@gmail.com",
+        "cta.phone": "+34 647 668 525",
+        "footer.text": "Text d'exemple. Feu clic per seleccionar l'element de text."
+      },
+      es: {
+        "nav.home": "Inicio",
+        "nav.property": "Propiedad",
+        "nav.amenities": "Comodidades",
+        "nav.location": "Ubicación",
+        "nav.contact": "Contacto",
+        "hero.title": "Alojamiento Roses",
+        "hero.subtitle": "Piso de alquiler completo en Girona, España. Perfecto para familias y grupos hasta 9 personas.",
+        "hero.button": "Ver más",
+        "location.1.name": "Salón",
+        "location.1.desc": "Espacio amplio y cómodo",
+        "location.2.name": "Cocina",
+        "location.2.desc": "Totalmente equipada",
+        "location.3.name": "Dormitorio Principal",
+        "location.3.desc": "Con baño privado",
+        "location.4.name": "Balcón",
+        "location.4.desc": "Frente al mar",
+        "location.5.name": "Dos dormitorios",
+        "location.5.desc": "Sin baño",
+        "location.6.name": "Piscina",
+        "location.6.desc": "Compartida todo el año",
+        "property.title": "Alojamiento Entero",
+        "property.guests": "9 viajeros",
+        "property.rooms": "3 dormitorios",
+        "property.beds": "7 camas",
+        "property.baths": "2 baños",
+        "trusted.title": "Confiado Por Los Mejores Agentes",
+        "trusted.subtitle": "Texto de ejemplo. Haz clic para seleccionar el elemento de texto.",
+        "trusted.1": "Encuentra ofertas excelentes",
+        "trusted.2": "Anfitrión amable y soporte rápido",
+        "trusted.3": "Lista tu propia propiedad",
+        "trusted.footer": "Imagen de Freepik",
+        "exclusive.title": "Apartamentos Exclusivos",
+        "exclusive.subtitle": "Texto de ejemplo. Haz clic para seleccionar el elemento de texto. Imagen de Freepik.",
+        "details.title": "¿Qué ofrece este espacio?",
+        "details.bathroom": "Baño",
+        "details.bath.1": "Bañera",
+        "details.bath.2": "Secador",
+        "details.bath.3": "Productos de limpieza",
+        "details.bath.4": "Bidet",
+        "details.bath.5": "Agua caliente",
+        "details.bedroom": "Dormitorio y lavandería",
+        "details.bed.1": "Lavadora",
+        "details.bed.2": "Percheros",
+        "details.bed.3": "Cortinas para oscurecer",
+        "details.bed.4": "Plancha",
+        "details.bed.5": "Tendedero",
+        "details.entertainment": "Entretenimiento",
+        "details.ent.1": "TV",
+        "details.ent.2": "Libros y material de lectura",
+        "details.family": "Para familias",
+        "details.fam.1": "Parque y cuna de viaje",
+        "details.fam.2": "Cortinas para oscurecer",
+        "details.fam.3": "Libros y juguetes para niños",
+        "details.fam.4": "Juegos de mesa",
+        "details.climate": "Calefacción y aire acondicionado",
+        "details.clim.1": "Aire acondicionado sin conductos",
+        "details.clim.2": "Ventilador en el techo",
+        "details.clim.3": "Ventiladores portátiles",
+        "details.clim.4": "Calefacción radiante",
+        "details.internet": "Internet y despacho",
+        "details.int.1": "Wifi",
+        "details.int.2": "Espacio de trabajo con puerta",
+        "details.kitchen": "Cocina y comedor",
+        "details.kit.1": "Cocina completa",
+        "details.kit.2": "Nevera y congelador",
+        "details.kit.3": "Microondas y horno",
+        "details.kit.4": "Cafetera y tostadora",
+        "details.kit.5": "Utensilios para la barbacoa",
+        "details.location": "Características del emplazamiento",
+        "details.loc.1": "Frente al mar",
+        "details.loc.2": "Junto a una masa de agua",
+        "details.loc.3": "Patio o balcón privado",
+        "details.loc.4": "Lugar para fogatas",
+        "details.loc.5": "Muebles de exterior",
+        "details.parking": "Aparcamiento e instalaciones",
+        "details.park.1": "Aparcamiento gratuito incluido",
+        "details.park.2": "Piscina descubierta compartida",
+        "details.park.3": "Disponible de 9:00 a 21:00",
+        "details.park.4": "Ascensor",
+        "map.title": "Ubicación",
+        "map.coords": "42°14'47.9\"N 3°11'13.5\"E",
+        "policies.title": "Política de reserva",
+        "policies.text": "Contáctame personalmente por correo o whatsapp. <a href=\"#contact\">Contacto</a>",
+        "policies.checkin": "Check-in/out",
+        "policies.arrival": "✓ Llegada a partir de las 13:00",
+        "policies.departure": "✓ La salida es antes de las 11:00",
+        "policies.guests": "✓ 9 huéspedes como máximo",
+        "policies.minimum": "✓ 1 semana como mínimo",
+        "cta.title": "Reserva Tu Alojamiento Ideal",
+        "cta.subtitle": "Contáctame personalmente por email o whatsapp:",
+        "cta.email": "jordiferrer66@gmail.com",
+        "cta.phone": "+34 647 668 525",
+        "footer.text": "Texto de ejemplo. Haz clic para seleccionar el elemento de texto."
+      },
+      en: {
+        "nav.home": "Home",
+        "nav.property": "Property",
+        "nav.amenities": "Amenities",
+        "nav.location": "Location",
+        "nav.contact": "Contact",
+        "hero.title": "Roses Accommodation",
+        "hero.subtitle": "Complete rental apartment in Girona, Spain. Perfect for families and groups up to 9 people.",
+        "hero.button": "See more",
+        "location.1.name": "Living Room",
+        "location.1.desc": "Spacious and comfortable",
+        "location.2.name": "Kitchen",
+        "location.2.desc": "Fully equipped",
+        "location.3.name": "Master Bedroom",
+        "location.3.desc": "With private bathroom",
+        "location.4.name": "Balcony",
+        "location.4.desc": "Front-facing the sea",
+        "location.5.name": "Two bedrooms",
+        "location.5.desc": "Without bathroom",
+        "location.6.name": "Pool",
+        "location.6.desc": "Shared year-round",
+        "property.title": "Entire Accommodation",
+        "property.guests": "9 travelers",
+        "property.rooms": "3 bedrooms",
+        "property.beds": "7 beds",
+        "property.baths": "2 bathrooms",
+        "trusted.title": "Trusted By Best Exclusive Agents",
+        "trusted.subtitle": "Sample text. Click to select the Text Element.",
+        "trusted.1": "Find excellent deals",
+        "trusted.2": "Friendly host & Fast support",
+        "trusted.3": "List your own property",
+        "trusted.footer": "Image from Freepik",
+        "exclusive.title": "Exclusive apartments",
+        "exclusive.subtitle": "Sample text. Click to select the Text Element. Image from Freepik.",
+        "details.title": "What does this space offer?",
+        "details.bathroom": "Bathroom",
+        "details.bath.1": "Bathtub",
+        "details.bath.2": "Hair dryer",
+        "details.bath.3": "Cleaning products",
+        "details.bath.4": "Bidet",
+        "details.bath.5": "Hot water",
+        "details.bedroom": "Bedroom and laundry",
+        "details.bed.1": "Washing machine",
+        "details.bed.2": "Hangers",
+        "details.bed.3": "Blackout curtains",
+        "details.bed.4": "Iron",
+        "details.bed.5": "Clothesline",
+        "details.entertainment": "Entertainment",
+        "details.ent.1": "TV",
+        "details.ent.2": "Books and reading material",
+        "details.family": "For families",
+        "details.fam.1": "Travel crib and playpen",
+        "details.fam.2": "Blackout curtains",
+        "details.fam.3": "Books and toys for children",
+        "details.fam.4": "Board games",
+        "details.climate": "Heating and air conditioning",
+        "details.clim.1": "Ductless air conditioning",
+        "details.clim.2": "Ceiling fan",
+        "details.clim.3": "Portable fans",
+        "details.clim.4": "Radiant heating",
+        "details.internet": "Internet and office",
+        "details.int.1": "Wifi",
+        "details.int.2": "Workspace with door",
+        "details.kitchen": "Kitchen and dining",
+        "details.kit.1": "Full kitchen",
+        "details.kit.2": "Refrigerator and freezer",
+        "details.kit.3": "Microwave and oven",
+        "details.kit.4": "Coffee maker and toaster",
+        "details.kit.5": "Barbecue utensils",
+        "details.location": "Location features",
+        "details.loc.1": "In front of the sea",
+        "details.loc.2": "Next to a body of water",
+        "details.loc.3": "Private patio or balcony",
+        "details.loc.4": "Fire pit area",
+        "details.loc.5": "Outdoor furniture",
+        "details.parking": "Parking and facilities",
+        "details.park.1": "Free parking included",
+        "details.park.2": "Shared outdoor pool",
+        "details.park.3": "Available from 9:00 to 21:00",
+        "details.park.4": "Elevator",
+        "map.title": "Location",
+        "map.coords": "42°14'47.9\"N 3°11'13.5\"E",
+        "policies.title": "Reservation Policy",
+        "policies.text": "Contact me personally via email or whatsapp. <a href=\"#contact\">Contact</a>",
+        "policies.checkin": "Check-in/out",
+        "policies.arrival": "✓ Arrival from 13:00",
+        "policies.departure": "✓ Departure before 11:00",
+        "policies.guests": "✓ Maximum 9 guests",
+        "policies.minimum": "✓ Minimum 1 week",
+        "cta.title": "Get Your Dream House",
+        "cta.subtitle": "Contact me personally by email or whatsapp:",
+        "cta.email": "jordiferrer66@gmail.com",
+        "cta.phone": "+34 647 668 525",
+        "footer.text": "Sample text. Click to select the Text Element."
+      },
+      fr: {
+        "nav.home": "Accueil",
+        "nav.property": "Propriété",
+        "nav.amenities": "Équipements",
+        "nav.location": "Emplacement",
+        "nav.contact": "Contact",
+        "hero.title": "Hébergement Roses",
+        "hero.subtitle": "Appartement de location complet à Girona, Espagne. Parfait pour les familles et groupes jusqu'à 9 personnes.",
+        "hero.button": "Voir plus",
+        "location.1.name": "Salon",
+        "location.1.desc": "Spacieux et confortable",
+        "location.2.name": "Cuisine",
+        "location.2.desc": "Entièrement équipée",
+        "location.3.name": "Chambre Principale",
+        "location.3.desc": "Avec salle de bain privée",
+        "location.4.name": "Balcon",
+        "location.4.desc": "Face à la mer",
+        "location.5.name": "Deux chambres",
+        "location.5.desc": "Sans salle de bain",
+        "location.6.name": "Piscine",
+        "location.6.desc": "Partagée toute l'année",
+        "property.title": "Hébergement Entier",
+        "property.guests": "9 voyageurs",
+        "property.rooms": "3 chambres",
+        "property.beds": "7 lits",
+        "property.baths": "2 salles de bain",
+        "trusted.title": "Fait Confiance Par Les Meilleurs Agents",
+        "trusted.subtitle": "Texte d'exemple. Cliquez pour sélectionner l'élément de texte.",
+        "trusted.1": "Trouvez d'excellentes offres",
+        "trusted.2": "Hôte amical et support rapide",
+        "trusted.3": "Listez votre propre propriété",
+        "trusted.footer": "Image de Freepik",
+        "exclusive.title": "Appartements Exclusifs",
+        "exclusive.subtitle": "Texte d'exemple. Cliquez pour sélectionner l'élément de texte. Image de Freepik.",
+        "details.title": "Que propose cet espace?",
+        "details.bathroom": "Salle de bain",
+        "details.bath.1": "Baignoire",
+        "details.bath.2": "Sèche-cheveux",
+        "details.bath.3": "Produits de nettoyage",
+        "details.bath.4": "Bidet",
+        "details.bath.5": "Eau chaude",
+        "details.bedroom": "Chambre et buanderie",
+        "details.bed.1": "Machine à laver",
+        "details.bed.2": "Cintres",
+        "details.bed.3": "Rideaux occultants",
+        "details.bed.4": "Fer à repasser",
+        "details.bed.5": "Sèche-linge",
+        "details.entertainment": "Divertissement",
+        "details.ent.1": "TV",
+        "details.ent.2": "Livres et matériel de lecture",
+        "details.family": "Pour les familles",
+        "details.fam.1": "Parc et lit de voyage",
+        "details.fam.2": "Rideaux occultants",
+        "details.fam.3": "Livres et jouets pour enfants",
+        "details.fam.4": "Jeux de société",
+        "details.climate": "Chauffage et climatisation",
+        "details.clim.1": "Climatisation sans conduits",
+        "details.clim.2": "Ventilateur au plafond",
+        "details.clim.3": "Ventilateurs portables",
+        "details.clim.4": "Chauffage radiant",
+        "details.internet": "Internet et bureau",
+        "details.int.1": "Wifi",
+        "details.int.2": "Espace de travail avec porte",
+        "details.kitchen": "Cuisine et salle à manger",
+        "details.kit.1": "Cuisine complète",
+        "details.kit.2": "Réfrigérateur et congélateur",
+        "details.kit.3": "Micro-ondes et four",
+        "details.kit.4": "Cafetière et grille-pain",
+        "details.kit.5": "Ustensiles de barbecue",
+        "details.location": "Caractéristiques de l'emplacement",
+        "details.loc.1": "Face à la mer",
+        "details.loc.2": "À côté d'un plan d'eau",
+        "details.loc.3": "Patio ou balcon privé",
+        "details.loc.4": "Espace pour feux de camp",
+        "details.loc.5": "Mobilier d'extérieur",
+        "details.parking": "Parking et installations",
+        "details.park.1": "Parking gratuit inclus",
+        "details.park.2": "Piscine extérieure partagée",
+        "details.park.3": "Disponible de 9h00 à 21h00",
+        "details.park.4": "Ascenseur",
+        "map.title": "Emplacement",
+        "map.coords": "42°14'47.9\"N 3°11'13.5\"E",
+        "policies.title": "Politique de réservation",
+        "policies.text": "Contactez-moi personnellement par email ou whatsapp. <a href=\"#contact\">Contact</a>",
+        "policies.checkin": "Check-in/out",
+        "policies.arrival": "✓ Arrivée à partir de 13h00",
+        "policies.departure": "✓ Départ avant 11h00",
+        "policies.guests": "✓ Maximum 9 invités",
+        "policies.minimum": "✓ Minimum 1 semaine",
+        "cta.title": "Obtenez Votre Maison de Rêve",
+        "cta.subtitle": "Contactez-moi personnellement par email ou whatsapp:",
+        "cta.email": "jordiferrer66@gmail.com",
+        "cta.phone": "+34 647 668 525",
+        "footer.text": "Texte d'exemple. Cliquez pour sélectionner l'élément de texte."
+      }
+    };
+
+    // Language switching functionality
+    let currentLang = 'fr';
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Update all translatable elements
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          if (el.tagName === 'A' || el.classList.contains('contact-info') || el.tagName === 'P') {
+            el.innerHTML = translations[lang][key];
+          } else {
+            el.textContent = translations[lang][key];
+          }
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-translate-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+    }
+
+    // Initialize language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Initialize with French as default
+    switchLanguage('fr');
+
+    // Image Modal functionality
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeModal = document.getElementById('closeModal');
+    const propertyImages = document.querySelectorAll('.property-section img[data-image-src]');
+
+    function openImageModal(imageSrc) {
+      modalImage.src = imageSrc;
+      imageModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      imageModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Add click handlers to all property images
+    propertyImages.forEach(img => {
+      img.addEventListener('click', () => {
+        openImageModal(img.getAttribute('data-image-src'));
+      });
+    });
+
+    // Close modal handlers
+    closeModal.addEventListener('click', closeImageModal);
+
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal) {
+        closeImageModal();
+      }
+    });
+
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+        closeImageModal();
+      }
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
