@@ -1467,11 +1467,53 @@
     };
 
     // Language switching functionality
+    const SUPPORTED_LANGS = Object.keys(translations);
+
+    function getLangFromUrl() {
+      try {
+        const url = new URL(window.location.href);
+        const fromQuery = (url.searchParams.get('lang') || url.searchParams.get('l') || '').toLowerCase();
+        if (fromQuery && SUPPORTED_LANGS.includes(fromQuery)) return fromQuery;
+
+        const parts = url.pathname.split('/').filter(Boolean);
+        const lastSeg = (parts[parts.length - 1] || '').toLowerCase();
+        if (lastSeg && SUPPORTED_LANGS.includes(lastSeg)) return lastSeg;
+
+        const fromHash = (url.hash.slice(1) || '').toLowerCase();
+        if (fromHash && SUPPORTED_LANGS.includes(fromHash)) return fromHash;
+      } catch (e) { /* ignore */ }
+      return null;
+    }
+
+    function syncUrlToLang(lang) {
+      if (!history.replaceState) return;
+      const url = new URL(window.location.href);
+      url.searchParams.delete('lang');
+      url.searchParams.delete('l');
+      if (lang && lang !== 'fr') url.searchParams.set('lang', lang);
+
+      const pathParts = url.pathname.split('/').filter(Boolean);
+      const lastP = (pathParts[pathParts.length - 1] || '').toLowerCase();
+      if (SUPPORTED_LANGS.includes(lastP)) {
+        pathParts.pop();
+        url.pathname = pathParts.length ? '/' + pathParts.join('/') : '/';
+      }
+
+      const h = (url.hash.slice(1) || '').toLowerCase();
+      if (SUPPORTED_LANGS.includes(h)) url.hash = '';
+      const next = url.pathname + url.search + (url.hash || '');
+      if (next !== window.location.pathname + window.location.search + window.location.hash) {
+        history.replaceState(null, '', next);
+      }
+    }
+
     let currentLang = 'fr';
 
-    function switchLanguage(lang) {
+    function switchLanguage(lang, opts) {
+      const syncUrl = opts && opts.syncUrl;
       currentLang = lang;
-      
+      document.documentElement.lang = lang;
+
       // Update active button
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
@@ -1499,13 +1541,20 @@
           el.placeholder = translations[lang][key];
         }
       });
+
+      if (syncUrl) syncUrlToLang(lang);
     }
 
     // Initialize language buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        switchLanguage(btn.dataset.lang);
+        switchLanguage(btn.dataset.lang, { syncUrl: true });
       });
+    });
+
+    window.addEventListener('hashchange', function () {
+      const h = (location.hash.slice(1) || '').toLowerCase();
+      if (SUPPORTED_LANGS.includes(h)) switchLanguage(h);
     });
 
     // Initialize contact information when DOM is ready
@@ -1549,8 +1598,8 @@
       });
     }
 
-    // Initialize with French as default
-    switchLanguage('fr');
+    // French by default; URL can override: ?lang=ca, path .../roses.html/ca, or #ca
+    switchLanguage(getLangFromUrl() || 'fr');
 
     // Image Modal functionality
     const imageModal = document.getElementById('imageModal');
